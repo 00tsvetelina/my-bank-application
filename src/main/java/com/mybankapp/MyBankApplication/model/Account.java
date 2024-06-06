@@ -36,5 +36,6 @@ public class Account implements Serializable {
     private Double balance;
 
     @Column(name = "status", nullable = false)
-    private String accountStatus;
+    @Enumerated(EnumType.STRING)
+    private AccountStatus accountStatus;
 }

@@ -28,7 +28,7 @@ public class Transaction implements Serializable {
     private Account sourceAccount;
 
     @Column(name = "target_account", nullable = false)
-    private Account targetAccount;
+    private Long targetAccountId;
 
     @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)

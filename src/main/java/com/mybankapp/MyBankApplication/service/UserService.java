@@ -41,6 +41,13 @@ public class UserService {
         User user = getUserById(userId);
 
         String password = user.getPassword().equals(oldPassword) ? newPassword : oldPassword;
+
+        if (password.equals(oldPassword)) {
+            throw new IllegalArgumentException(
+                    "Cannot proceed with password change, incorrect previous password entry"
+            );
+        }
+
         user.setPassword(password);
 
         return userRepository.save(user);

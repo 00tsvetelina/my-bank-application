@@ -16,12 +16,13 @@ public class TransactionService {
 
     // get transactions by account id
     public List<Transaction> getAllTransactionsByAccountId(Long accountId) {
-        return transactionRepository.findAllBySourceAccountIn(accountId);
+        return transactionRepository.findAllBySourceAccountId(accountId);
     }
 
     // create transaction
     @Transactional
     public Transaction createTransaction(Transaction transaction) {
+
         return transactionRepository.save(transaction);
     }
 
